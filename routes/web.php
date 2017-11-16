@@ -52,8 +52,21 @@ Route::post('user', function(Request $request) {
   User::create($request->only(['user','password']));
 });
 
-Route::view('axios', 'axios');
+//GUARD
+Route::view('axios', 'axios')->middleware('auth');
+Route::view('user2', 'user2')->middleware('auth');
+Route::view('user3', 'user3')->middleware('auth');
+Route::view('tokens', 'tokens')->middleware('auth');
+
+
+
+
+//Route::group(['middleware' => auth],function() {
+//  Route::view('axios', 'axios')
+//});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

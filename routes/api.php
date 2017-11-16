@@ -19,4 +19,12 @@ Route::get('/user', function (Request $request) {
         'name' => 'Pepe',
         'email' => 'pepe@pepe.com'
     ];
-});
+})->middleware('auth:api');
+
+Route::get('/passport/user', function (Request $request) {
+    return [
+        'headers' => [ 'X-CSRF-TOKEN' => $request->header('X-CSRF-TOKEN'), 'PROVA' => $request->header('PROVA') , 'HEADER1' => $request->header('PROVA') ],
+        'name' => 'Pepe',
+        'email' => 'pepe@pepe.com'
+    ];
+})->middleware('auth:api_passport');
