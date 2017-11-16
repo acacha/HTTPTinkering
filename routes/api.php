@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 Route::get('/user', function (Request $request) {
     return [
-        'headers' => 'TODO HEADERS ENVIATS' ,
+        'headers' => [ 'X-CSRF-TOKEN' => $request->header('X-CSRF-TOKEN'), 'PROVA' => $request->header('PROVA') , 'HEADER1' => $request->header('PROVA') ],
         'name' => 'Pepe',
         'email' => 'pepe@pepe.com'
     ];

@@ -24,7 +24,9 @@
         mounted() {
           console.log('Component mounted.')
           // TODO header
-          axios.get('api/user').then( response => {
+          axios.get('api/user',{
+            headers: { 'PROVA' : 'VALUE' , 'HEADER1' : 'VALUE1'}
+          }).then( response => {
            this.user = response.data
           }).catch(error => {
             console.log(error)
